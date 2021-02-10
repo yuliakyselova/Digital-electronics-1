@@ -1,16 +1,16 @@
 # Digital-electronics-1
 
-##Headers
+## Headers
 
-##Emphasis (italics, bold)
+## Emphasis (italics, bold)
 
-##Lists (ordered, unordered)
+## Lists (ordered, unordered)
 
-##Links
+## Links
 
-##Table
+## Table
 
-##Listing of VHDL source code
+## Listing of VHDL source code
 
 **Source code**
 
