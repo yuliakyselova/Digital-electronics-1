@@ -39,7 +39,7 @@ B>A
 ### Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function.
 ![](Images/BlABmA.jpg)
 
-### EDA Playgroud 
+### Odkaz EDA Playgroud: 
 https://www.edaplayground.com/x/nNsR
 
 # 3. 4-bit binary comparator.
