@@ -26,3 +26,17 @@
 ### Karnaugh maps
 
 B<A
+
+![](Images/BlessA.jpg)
+
+B=A
+
+![](Images/BeqA.jpg)
+
+B>A
+
+![](Images/BmoreA.jpg)
+
+### Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function.
+
+![](Images/BlessABmoreA.jpg)
