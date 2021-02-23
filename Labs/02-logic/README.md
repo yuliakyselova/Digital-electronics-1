@@ -34,9 +34,33 @@ B=A
 ![](Images/BeqA.jpg)
 
 B>A
-
 ![](Images/BmoreA.jpg)
 
 ### Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function.
-
 ![](Images/BlABmA.jpg)
+
+### EDA Playgroud 
+https://www.edaplayground.com/x/nNsR
+
+# 3. 4-bit binary comparator.
+
+## Listing of VHDL architecture from design file.
+
+
+
+### Vypis logu:
+[2021-02-23 15:41:18 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_2bit && ghdl -r  tb_comparator_2bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd 
+analyze design.vhd
+analyze testbench.vhd
+elaborate tb_comparator_2bit
+testbench.vhd:51:9:@0ms:(report note): Stimulus process started
+testbench.vhd:54:7:@0ms:(report note): Stimulus process started
+testbench.vhd:122:9:@1700ns:(assertion error): Test failed for input combination: 1111, 1111
+testbench.vhd:125:9:@1700ns:(report note): Stimulus process finished
+Finding VCD file...
+./dump.vcd
+[2021-02-23 15:41:19 EST] Opening EPWave...
+Done
+
+
+
