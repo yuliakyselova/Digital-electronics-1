@@ -39,4 +39,4 @@ B>A
 
 ### Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function.
 
-![](Images/BlessABmoreA.jpg)
+![](Images/BlABmA.jpg)
