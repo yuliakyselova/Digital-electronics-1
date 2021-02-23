@@ -213,5 +213,6 @@ Finding VCD file...
 [2021-02-23 15:41:19 EST] Opening EPWave...
 Done
 
-
+## Link to  EDA Playground:
+https://www.edaplayground.com/x/nNsR
 
