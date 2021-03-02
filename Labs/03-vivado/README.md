@@ -135,7 +135,7 @@ end architecture testbench;
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/step1.png)
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok2.png)
 
-### Type the name og the project and choose the directory.
+### Type the name of the project and choose the directory.
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok3.png)
 
 ### Choose project type.
@@ -157,7 +157,7 @@ end architecture testbench;
 ### Here we can write  Design/Testbench VHDL code: 
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok10.png)
 
-###When the code is done in tutorial -> create testbench by prssing ALT + A.
+### When the code is done in tutorial -> create testbench by prssing ALT + A.
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok11.png)
 
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok12.png)
