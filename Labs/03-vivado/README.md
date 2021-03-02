@@ -126,7 +126,36 @@ end architecture testbench;
 
 ### Simulated time waveforms:
 
+
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Simulation.png)
 
 ## 3. Vivado tutorial.
 
+### Step 1. Create project:
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/step1.png)
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok2.png)
+
+### Type the name og the project and choose the directory:
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok3.png)
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok4.png)
+
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok5.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok6.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok7.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok8.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok9.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok10.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok11.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok12.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok33.png)
+
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Simulation.png)
