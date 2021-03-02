@@ -162,6 +162,8 @@ end architecture testbench;
 
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok12.png)
 
-![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok33.png)
+### Step 3. Run Simulation
+### Flow -> Run Simulation -> Run Behavioral Simulation.
+![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/krok13.png)
 
 ![03-vivado](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Simulation.png)
