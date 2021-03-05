@@ -44,3 +44,9 @@ https://github.com/yuliakyselova/Digital-electronics-1
 | d | 1101 | 0 | 1 | 1 | 1 | 1 | 0 | 1 |
 | E | 1110 | 1 | 0 | 0 | 1 | 1 | 1 | 1 |
 | F | 1111 | 1 | 0 | 0 | 0 | 1 | 1 | 1 |
+
+## 2. Seven-segment display decoder.
+
+### VHDL architecture hex_7seg.vhd.
+
+
