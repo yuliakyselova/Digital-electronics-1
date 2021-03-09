@@ -3,8 +3,14 @@
 ### GitHub repository
 https://github.com/yuliakyselova/Digital-electronics-1
 
+
+
 ## 1. Table with connection of 7-segment displays on Nexys A7 board.
 
+
+
+
+### Decoder truth table for common anode 7-segment display.
 | **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | 0 | 0000 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
@@ -24,26 +30,8 @@ https://github.com/yuliakyselova/Digital-electronics-1
 | E | 1110 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
 | F | 1111 | 0 | 1 | 1 | 1 | 0 | 0 | 0 |
 
-### Decoder truth table for common anode 7-segment display.
 
-| **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 0 | 0000 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
-| 1 | 0001 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
-| 2 | 0010 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
-| 3 | 0011 | 1 | 1 | 1 | 1 | 0 | 0 | 1 |
-| 4 | 0100 | 0 | 1 | 1 | 0 | 0 | 1 | 1 |
-| 5 | 0101 | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
-| 6 | 0110 | 1 | 0 | 1 | 1 | 1 | 1 | 1 |
-| 7 | 0111 | 1 | 1 | 1 | 0 | 0 | 0 | 0 |
-| 8 | 1000 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| 9 | 1001 | 1 | 1 | 1 | 0 | 0 | 1 | 1 |
-| A | 1010 | 1 | 1 | 1 | 0 | 1 | 1 | 1 |
-| b | 1011 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
-| C | 1100 | 0 | 0 | 0 | 1 | 1 | 0 | 1 |
-| d | 1101 | 0 | 1 | 1 | 1 | 1 | 0 | 1 |
-| E | 1110 | 1 | 0 | 0 | 1 | 1 | 1 | 1 |
-| F | 1111 | 1 | 0 | 0 | 0 | 1 | 1 | 1 |
+
 
 ## 2. Seven-segment display decoder.
 
