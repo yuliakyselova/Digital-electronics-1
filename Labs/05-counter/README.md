@@ -1,5 +1,8 @@
 # Lab 05 - counter
 
+### GitHub repository.
+https://github.com/yuliakyselova/Digital-electronics-1
+
 ## 1.Preparation tasks.
 
 ### Table with connection of push buttons on Nexys A7 board.
