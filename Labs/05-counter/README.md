@@ -1,8 +1,5 @@
 # Lab 05 - counter
-<<<<<<< HEAD
-=======
 
->>>>>>> 1f6ad149b4c2a1fe8c8855c9d556ede38b23d62c
 ### GitHub repository.
 https://github.com/yuliakyselova/Digital-electronics-1
 
@@ -102,12 +99,8 @@ https://github.com/yuliakyselova/Digital-electronics-1
 
 ### Screenshot with simulated time waveforms.
 
-
-<<<<<<< HEAD
-![Getting Started](./screenshot1.png)
-=======
 ![05-counter](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/05-counter/Images/Screenshot1.png)
->>>>>>> 1f6ad149b4c2a1fe8c8855c9d556ede38b23d62c
+
 
 ## 3.Top level.
 
@@ -168,11 +161,8 @@ https://github.com/yuliakyselova/Digital-electronics-1
 
 ### Image of the top layer including both counters, ie a 4-bit bidirectional counter from Part 4 and a 16-bit counter with a 10 ms time base from Part Experiments on your own.
 
-<<<<<<< HEAD
-![Getting Started](./img1.png)
-=======
 ![05-counter](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/05-counter/Images/img1.png)
->>>>>>> 1f6ad149b4c2a1fe8c8855c9d556ede38b23d62c
+
 
 
 
