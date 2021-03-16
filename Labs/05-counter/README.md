@@ -161,6 +161,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
 
 ### Image of the top layer including both counters, ie a 4-bit bidirectional counter from Part 4 and a 16-bit counter with a 10 ms time base from Part Experiments on your own.
 
+![05-counter](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/05-counter/Images/img1.png)
 
 
 
