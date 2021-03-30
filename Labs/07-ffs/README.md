@@ -388,7 +388,64 @@ https://github.com/yuliakyselova/Digital-electronics-1
 
 Listing of VHDL clock, reset and stimulus processes from the testbench files `p_jk_ff_rst`
 ```vhdl
+     p_reset_gen : process
+        begin
+            s_rst <= '0';
+            wait for 30 ns;
+            
+            s_rst <= '1';
+            wait for 15 ns;
 
+            s_rst <= '0';
+            
+            wait;
+        end process p_reset_gen;
+
+    ------------------------------------------
+    --Data generation process
+    ------------------------------------------    
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        s_j <= '0';
+        s_k <= '0';
+        
+        --d seq
+        wait for 10 ns;
+        s_j <= '0';
+        s_k <= '0';        
+        wait for 10 ns;
+        s_j <= '1';
+        s_k <= '0';                       
+        wait for 10 ns;
+        s_j <= '0';
+        s_k <= '1';        
+        wait for 10 ns;
+        s_j <= '1';
+        s_k <= '0';       
+        wait for 10 ns;
+        s_j <= '1';
+        s_k <= '1';
+        --/d seq
+        
+        --d seq
+        wait for 10 ns;
+        s_j <= '0';
+        s_k <= '0';             
+        wait for 10 ns;
+        s_j <= '0';
+        s_k <= '1';     
+        wait for 10 ns;
+        s_j <= '1';
+        s_k <= '0';     
+        wait for 10 ns;
+        s_j <= '1';
+        s_k <= '1';
+        --/d seq
+        
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
 ```
 
 
