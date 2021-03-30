@@ -521,7 +521,9 @@ Listing of VHDL clock, reset and stimulus processes
           s_t   <= '0';
            wait for 10 ns;          
           s_t   <= '1'; 
-          ```
+```          
+          
+          
 Screenshot with simulated time waveforms.
 ![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/t.png)
 
