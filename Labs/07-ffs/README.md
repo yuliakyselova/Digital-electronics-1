@@ -161,6 +161,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
    ### VHDL code listing of the processes `p_d_ff_arst`, `p_d_ff_rst`, `p_jk_ff_rst`, `p_t_ff_rst`.
    
    `p_d_ff_arst`
+   
    ```vhdl
    p_d_ff_arst : process (clk, arst)
     begin
@@ -173,7 +174,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
         end if;
     end process p_d_ff_arst;
    ```
-   Listing of VHDL clock, reset and stimulus processes from the testbench files.
+   Listing of VHDL clock, reset and stimulus processes from the testbench files `p_d_ff_arst`
    
    ```vhdl
          ------------------------------------------
@@ -272,7 +273,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
     end process p_d_ff_rst;
    ```
    
-   Listing of VHDL clock, reset and stimulus processes from the testbench files
+   Listing of VHDL clock, reset and stimulus processes from the testbench files from `p_d_ff_rst`
    ```vhdl
    ------------------------------------------
     --Clock generation process
@@ -354,4 +355,41 @@ https://github.com/yuliakyselova/Digital-electronics-1
    Screenshot with simulated time waveforms.
    ![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/s_rst.png)
    
+   
+  `p_jk_ff_rst`
+  ```vhdl
+    p_jk_ff_rst : process (clk)
+    begin                                                              
+        if rising_edge(clk) then
+            if (rst = '1') then
+              s_q     <= '0';
+              s_q_bar <= '1';
+            else
+            if (j = '0' and k = '0') then
+                s_q     <= s_q;
+                s_q_bar <= s_q_bar;
+            elsif (j = '0' and k = '1') then
+                s_q     <= '0';
+                s_q_bar <= '1';
+            elsif (j = '1' and k = '0') then
+                s_q     <= '1';
+                s_q_bar <= '0';
+            else
+                s_q     <= not s_q;
+                s_q_bar <= not s_q_bar;
+            end if;       
+          end if;  
+        end if;                                                     
+    end process p_jk_ff_rst;
+    
+    q       <=  s_q;
+    q_bar   <=  s_q_bar;
+```
+
+Listing of VHDL clock, reset and stimulus processes from the testbench files `p_jk_ff_rst`
+```vhdl
+
+```
+
+
    
