@@ -160,7 +160,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
    
    ### VHDL code listing of the processes `p_d_ff_arst`, `p_d_ff_rst`, `p_jk_ff_rst`, `p_t_ff_rst`.
    
-   `p_d_ff_arst`
+  ### `p_d_ff_arst`
    
    ```vhdl
    p_d_ff_arst : process (clk, arst)
@@ -356,7 +356,7 @@ https://github.com/yuliakyselova/Digital-electronics-1
    ![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/s_rst.png)
    
    
-  `p_jk_ff_rst`
+  ### `p_jk_ff_rst`
   ```vhdl
     p_jk_ff_rst : process (clk)
     begin                                                              
@@ -447,6 +447,85 @@ Listing of VHDL clock, reset and stimulus processes from the testbench files `p_
         wait;
     end process p_stimulus;
 ```
+Screenshot with simulated time waveforms.
+![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/jk.png)
 
+
+### `p_t_ff_rst`
+```vhdl
+p_t_ff_rst : process (clk)
+        begin 
+         
+            if rising_edge(clk) then
+                if (rst = '1') then
+                    s_q <= '0';
+                    
+                else 
+                    if (t = '0') then
+                        s_q <= s_q;
+                        
+                    elsif (t = '1') then
+                        s_q <= not s_q;
+                    
+                    end if;
+                end if;             
+            end if;
+        end process p_t_ff_rst;
+        q       <= s_q;
+        q_bar   <= not s_q;
+```
+
+Listing of VHDL clock, reset and stimulus processes
+
+```vhdl
+          wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+          wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1'; 
+          wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1';
+           wait for 10 ns;          
+          s_t   <= '0';
+           wait for 10 ns;          
+          s_t   <= '1'; 
+          ```
+Screenshot with simulated time waveforms.
+![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/t.png)
+
+          
+          
 
    
