@@ -176,12 +176,86 @@ https://github.com/yuliakyselova/Digital-electronics-1
    Listing of VHDL clock, reset and stimulus processes from the testbench files.
    
    ```vhdl
-     
+         ------------------------------------------
+    --Clock generation process
+    ------------------------------------------
+     p_clk_gen : process
+        begin
+            while now < 750 ns loop         -- 75 periods of 100MHz clock
+                s_clk_100MHz <= '0';
+                wait for c_CLK_100MHz_PERIOD / 2;
+                s_clk_100MHz <= '1';
+                wait for c_CLK_100MHz_PERIOD / 2;
+            end loop;
+            wait;
+        end process p_clk_gen;
+    ------------------------------------------
+    --Reset generation process
+    ------------------------------------------    
+     p_reset_gen : process
+        begin
+            s_arst <= '0';
+            wait for 30 ns;
+            
+            -- Reset activated
+            s_arst <= '1';
+            wait for 15 ns;
+    
+            -- Reset deactivated
+            s_arst <= '0';
+            
+            wait;
+        end process p_reset_gen;
+
+    ------------------------------------------
+    --Data generation process
+    ------------------------------------------ 
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        s_d <= '0';
+        
+        --d seq
+        wait for 13 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        
+        wait for 7 ns;
+        
+        wait for 4 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';   
+        --/d seq
+        
+        --d seq
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';   
+        --/d seq
+        
+    report "Stimulus process finished" severity note;
+    wait;
+    end process p_stimulus;
    ```
    
    
    
-   `p_d_ff_arst`
+   `p_d_ff_rst`
    
    ```vhdl
     p_d_ff_rst : process (clk)             
