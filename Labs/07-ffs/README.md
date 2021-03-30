@@ -5,6 +5,8 @@ https://github.com/yuliakyselova/Digital-electronics-1
 
 ## 1.Preparation tasks.
 
+![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/equatation.png)
+
    |clk| **d** | **q(n)** | **q(n+1)** | **Comments** |
    |:-:| :-: | :-: | :-: | :-- |
    || 0 | 0 | 0 | No change |
@@ -529,5 +531,8 @@ Screenshot with simulated time waveforms.
 
           
           
+## 4. Shift register.
 
-   
+### Image of the shift register schematic. 
+
+![07-ffs](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/07-ffs/Images/schema.jpg)
