@@ -26,6 +26,7 @@ Completed table with color settings.
 ## 2.Traffic light controller.
 
 ### State diagram.
+![08-trafic_lights](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/diagram1.png)
 
 
 ### Listing of VHDL code of sequential process `p_traffic_fsm`.
@@ -162,7 +163,7 @@ p_output_fsm : process(s_state)
 ```
 
 ### Screenshot of the simulation.
-![08-trafic_lights](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/simulation.png)
+![08-trafic_lights](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/simulation2.png)
 
 ## 3. Smart controller.
 
@@ -179,10 +180,12 @@ p_output_fsm : process(s_state)
 
 ### State diagram.
 
+![08-trafic_lights](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/diagram2.png)
+
 ### Listing of VHDL code of sequential process `p_smart_traffic_fsm`.
 
 ```vhdl
-  p_smart_traffic_fsm : process(clk)
+      p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset = '1') then       -- Synchronous reset
@@ -212,17 +215,10 @@ p_output_fsm : process(s_state)
                         -- Count up to c_DELAY_4SEC
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
-                        elsif(south_sensor_i = '0' and west_sensor_i = '0') then
+                        else
+                            -- Move to the next state
                             s_state <= WEST_WAIT;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '0' and west_sensor_i = '1') then
-                            s_state <= WEST_GO;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '1' and west_sensor_i = '0') then
-                            s_state <= WEST_WAIT;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '1' and west_sensor_i = '1') then
-                            s_state <= WEST_WAIT;
+                            -- Reset local counter value
                             s_cnt   <= c_ZERO;
                         end if;
                         
@@ -252,17 +248,10 @@ p_output_fsm : process(s_state)
                         -- Count up to c_DELAY_4SEC
                         if (s_cnt < c_DELAY_4SEC) then
                             s_cnt <= s_cnt + 1;
-                        elsif(south_sensor_i = '0' and west_sensor_i = '0') then
+                        else
+                            -- Move to the next state
                             s_state <= SOUTH_WAIT;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '0' and west_sensor_i = '1') then
-                            s_state <= SOUTH_WAIT;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '1' and west_sensor_i = '0') then
-                            s_state <= SOUTH_GO;
-                            s_cnt   <= c_ZERO;
-                        elsif(south_sensor_i = '1' and west_sensor_i = '1') then
-                            s_state <= SOUTH_WAIT;
+                            -- Reset local counter value
                             s_cnt   <= c_ZERO;
                         end if;  
                           
@@ -286,5 +275,5 @@ p_output_fsm : process(s_state)
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
-    end process p_smart_traffic_fsm;
+    end process p_traffic_fsm;
 ```
