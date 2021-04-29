@@ -353,7 +353,7 @@ begin
 end Behavioral;
 ```
 
-### 5. Rychlost
+### 5. Speed. 
 
 ```vhdl
 library IEEE;
