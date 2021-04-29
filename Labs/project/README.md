@@ -2,13 +2,11 @@
 
 ### Team members
 
-| **Jméno** | **GitHub** |
-| :-: | :-: |
-| Krýcha Jakub | https://github.com/xkrych01/Digital-electronics-1 |
-| Kyselova Yuliia | https://github.com/yuliakyselova/Digital-electronics-1 |
-| Lazarević Veljko| https://github.com/mvvelja/Digital-electronics-1 |
-| Levák Adam     | https://github.com/AdamLevak/Digital-electronics-1 |
-| Lovas Václav  |  https://github.com/xlovas00/Digital-electronics-1|
+- **Krýcha Jakub**
+- **Kyselova Yuliia**
+- **Lazarević Veljko**
+- **Levák Adam**
+- **Lovas Václav**
 
 [Link to GitHub project folder]( http://github.com/xxx)
 
