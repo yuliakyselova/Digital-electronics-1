@@ -14,12 +14,12 @@
 
 ### Project objectives
 
-Creating a console for exercise bike with hall sensor, measuring and displaying speed, distance traveled...
+Creating a console for exercise bike with hall sensor, measuring and displaying speed, distance traveled.
 
 
 ## Hardware description
 
-Board used Arty A7-35T...
+Board used Arty A7-35T.
 
 
 ## VHDL modules description and simulations
@@ -177,11 +177,173 @@ end architecture behavioral;
 ![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/counter_distance.png)
 
 ### 3. Hallova sonda
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
-### 4. Frekvence šlapání
+
+entity tread_sensor is
+       
+    Port ( 
+        clk     : in std_logic;
+        rst     : in std_logic;
+        btn_o   : in std_logic;                     -- input treading
+        trd_o   : out std_logic;                    -- output treading
+        trd_led : out std_logic_vector(3-1 downto 0)-- output for led
+    );
+end tread_sensor;
+
+architecture Behavioral of tread_sensor is
+    -- type of states treading
+    type t_state is (OFF,
+                     BAD,
+                     NORMAL,
+                     GOOD,
+                     PERFECT
+                     );
+    
+    signal s_state  : t_state;
+    signal clicks   : integer;
+    signal s_cnt    : unsigned(5-1 downto 0);
+    
+    
+    -- Specific values for local counter
+    constant DELAY_4SEC : unsigned(5-1 downto 0) := b"1_0000";
+    constant ZERO : unsigned(5-1 downto 0) := b"0_0000";
+begin
+   
+    p_output_led : process(s_state)
+    begin       -- represenation of states to RGB-LED
+        case s_state is
+            when OFF =>
+                trd_led <= "000";
+            
+            when BAD =>
+                trd_led <= "100";
+            
+            when NORMAL =>
+                trd_led <= "110";
+            
+            when GOOD =>
+                trd_led <= "010";
+            
+            when PERFECT =>
+                trd_led <= "001";
+            
+            when others =>
+                trd_led <= "000";
+        end case;       
+    end process p_output_led;
+    
+    p_tread_sensor : process(clk, btn_o)
+    begin
+        if rising_edge(clk) then    
+            
+            if (rst = '1') then -- synchronous reset
+                clicks <= 0;
+                s_state <= OFF;
+                trd_o <= '0';
+            else            -- calculation clicks at 4 seconds
+                if (s_cnt < DELAY_4SEC) then
+                    s_cnt <= s_cnt + 1;
+                    
+                    if rising_edge(btn_o) then  -- waiting for input rising edge
+                        clicks <= clicks + 1;   -- click +1
+                        trd_o <= '1';           -- set at output 1
+                    else
+                        clicks <= clicks;       -- clicks is same
+                        trd_o <= '0';           -- set at output 0
+                        
+                    end if;    
+                else                            -- dysplaing the intensity of treading
+                    if (clicks <= 5) then
+                        s_state <= BAD;
+                
+                    elsif (clicks <= 10) then 
+                        s_state <= NORMAL;
+                
+                    elsif (clicks <= 15) then
+                        s_state <= GOOD;
+                    
+                    else 
+                        s_state <= PERFECT;
+                    end if;
+                    
+                    clicks <= 0;                -- set clicks and local counter to 0
+                    s_cnt <= ZERO;
+                end if;
+            end if;
+        end if;
+    end process p_tread_sensor;
+
+end Behavioral;
+
+```
 
 ### 5. Rychlost
 
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity Velocity_counter is
+    generic(
+        g_CNT_WIDTH : natural := 4      -- Number of bits for counter         
+           );
+    Port ( 
+            gen_o      : in std_logic;
+            clk        : in std_logic;
+            reset      : in  std_logic;       -- Synchronous reset                       
+            cnt_o_A    : out std_logic_vector(g_CNT_WIDTH - 1 downto 0);
+            cnt_o_B    : out std_logic_vector(g_CNT_WIDTH - 1 downto 0);
+            cnt_o_C    : out std_logic_vector(g_CNT_WIDTH - 1 downto 0);
+            cnt_o_D    : out std_logic_vector(g_CNT_WIDTH - 1 downto 0);
+           -- ticks      : out std_logic_vector(g_CNT_WIDTH - 1 downto 0)
+            ticks      : out real  
+            );
+end Velocity_counter;
+
+architecture Behavioral of Velocity_counter is  
+ -- Local counter    
+    signal s_cnt_local_A : unsigned(g_CNT_WIDTH - 1 downto 0);
+    signal s_cnt_local_B : unsigned(g_CNT_WIDTH - 1 downto 0);
+    signal s_cnt_local_C : unsigned(g_CNT_WIDTH - 1 downto 0);
+    signal s_cnt_local_D : unsigned(g_CNT_WIDTH - 1 downto 0);
+   -- signal s_ticks       : unsigned(g_CNT_WIDTH - 1 downto 0);
+   -- signal counter       : unsigned(g_CNT_WIDTH - 1 downto 0);
+    signal s_ticks       : real;
+    signal counter       : real;
+    constant kmh         : real:= 3.6;
+begin
+p_vel : process(clk,gen_o)
+    begin
+        if reset = '1' then
+               s_ticks <= 0.0;
+               counter <= 0.0;
+        elsif rising_edge(gen_o) then                                     
+               counter <= counter + 2.0;   -- counting up
+        elsif rising_edge(clk) then           
+               s_ticks <= counter * kmh ; 
+               counter <= 0.0; 
+                                                                               
+        end if;        
+    end process p_vel;
+
+ticks <= s_ticks;
+-- s_ticks <= s_ticks * (18/5); -- prevod na km/h   
+end Behavioral;
+```
 
 
 
