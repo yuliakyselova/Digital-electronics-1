@@ -32,12 +32,12 @@ use ieee.numeric_std.all;
 entity timer is
 generic(ClockFrequencyHz : integer:= 0);
 port(
-    clk      : in  std_logic;
-    rst      : in  std_logic;
+    clk           : in  std_logic;
+    rst           : in  std_logic;
     Seconds_units : out std_logic_vector(3 downto 0);
-    Seconds_tens : out std_logic_vector(3 downto 0);
+    Seconds_tens  : out std_logic_vector(3 downto 0);
     Minutes_units : out std_logic_vector(3 downto 0);
-    Minutes_tens : out std_logic_vector(3 downto 0));
+    Minutes_tens  : out std_logic_vector(3 downto 0));
 end entity;
  
 architecture rtl of timer is
@@ -76,9 +76,9 @@ begin
     end process;
  
     Seconds_units <= std_logic_vector(to_unsigned(to_integer(Seconds mod 10), 4)); 
-    Seconds_tens <= std_logic_vector(to_unsigned(to_integer(Seconds/10),4)); 
+    Seconds_tens  <= std_logic_vector(to_unsigned(to_integer(Seconds/10),4)); 
     Minutes_units <= std_logic_vector(to_unsigned(to_integer(Minutes mod 10),4));  
-    Minutes_tens <= std_logic_vector(to_unsigned(to_integer(Minutes/10),4)); 
+    Minutes_tens  <= std_logic_vector(to_unsigned(to_integer(Minutes/10),4)); 
  
 end architecture;
 ```
