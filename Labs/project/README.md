@@ -14,7 +14,7 @@
 
 ### Project objectives
 
-Creating a console for exercise bike with hall sensor, measuring and displaying speed, distance traveled.
+Creating a console for exercise bike with hall sensor, measuring and displaying speed, distance traveled etc.
 
 
 ## Hardware description
@@ -25,6 +25,7 @@ Board used Arty A7-35T.
 ## VHDL modules description and simulations
 
 ### 1. Timer
+VHDL code of timer module - `timer.vhd`.
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -89,9 +90,8 @@ end architecture;
 ### Simulation waveforms - simulating Timer module
 ![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/timer.png)
 
-### 2. Měření vzdálenosti
-
-`counter_distance`
+### 2. Distance traveled.
+VHDL code of distance traveled  module - `counter_distance.vhd`.
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -176,7 +176,80 @@ end architecture behavioral;
 ### Simulation waveforms - simulating counter_distance module
 ![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/counter_distance.png)
 
-### 3. Hallova sonda
+### 3. Hall sensor.
+VHDL code of hall sensor module - `hall_sonda.vhd`.
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity hall_sonda is
+    generic(
+        g_MAX : natural := 4    
+    );
+    
+    Port ( 
+        clk   : in std_logic;
+        rst   : in std_logic;
+        trdhs : in std_logic;       -- input from tread sensor
+        drl_o : in std_logic;       -- hardest or easiest 
+        gen_o : out std_logic       -- generate pulse
+    );
+end hall_sonda;
+
+architecture Behavioral of hall_sonda is
+    signal s_trd : std_logic;           -- connecting signal
+    signal s_btn : std_logic;           -- for fixing error
+    signal s_cnt_local : natural;       -- local counter
+
+begin
+    tread_s : entity work.tread_sensor
+        port map(           
+            clk => clk,
+            rst => rst,
+            btn_o => s_btn,
+            trd_o => s_trd
+            
+        ); 
+     
+    p_hall_sonda : process(s_trd,clk)
+    begin
+        s_trd <= trdhs;                  -- Set output from tread_sensor to input software hall_sond
+              
+        if rising_edge(trdhs) then       -- set 
+            if (rst = '1') then          -- High active reset
+                s_cnt_local  <= 0;       -- Clear local counter
+                gen_o        <= '0';
+            -- easy level for treading
+            elsif (drl_o = '0') then
+                if (s_cnt_local >= (g_MAX - 1)) then
+                    
+                    s_cnt_local  <= 0;       -- Clear local counter
+                    gen_o        <= '1';     -- Generate pulse
+
+                else
+                    s_cnt_local <= s_cnt_local + 1; -- counter +1
+                    gen_o        <= '0';            -- generate 0
+                end if;
+            -- hard level for treading   
+            elsif (drl_o = '1') then
+                if (s_cnt_local >= ((g_MAX - 1)/2)) then
+                    
+                    s_cnt_local  <= 0;       -- Clear local counter
+                    gen_o        <= '1';     -- Generate pulse
+
+                else
+                    s_cnt_local <= s_cnt_local + 1; -- counter +1
+                    gen_o        <= '0';            -- generate 0
+                end if;
+            end if;
+         end if;
+    end process p_hall_sonda;
+    
+end Behavioral;
+```
+
+### 4. Tread sensor.
+VHDL code of tread sensor module - `tread_sensor.vhd`.
 ```vhdl
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -278,7 +351,6 @@ begin
     end process p_tread_sensor;
 
 end Behavioral;
-
 ```
 
 ### 5. Rychlost
@@ -347,18 +419,16 @@ end Behavioral;
 
 
 
-
-
 ## TOP module description and simulations
 
-Write your text here.
+
 
 
 ## Video
 
-*Write your text here*
+
 
 
 ## References
 
-   1. Write your text here.
+   1. 
