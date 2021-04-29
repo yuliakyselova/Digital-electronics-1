@@ -243,6 +243,8 @@ begin
     
 end Behavioral;
 ```
+### Simulation waveforms - simulating hall sensor module
+![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/hall_sonda.png)
 
 ### 4. Tread sensor.
 VHDL code of tread sensor module - `tread_sensor.vhd`.
@@ -348,6 +350,9 @@ begin
 
 end Behavioral;
 ```
+### Simulation waveforms - simulating tread sensor module
+![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/slapani.png)
+
 
 ### 5. Speed. 
 
