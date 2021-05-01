@@ -264,7 +264,7 @@ entity tread_sensor is
         clk     : in std_logic;
         rst     : in std_logic;
         btn_o   : in std_logic;                     -- input treading
-        trd_o   : out std_logic;                    -- output treading
+        trd_o   : out std_logic;                    -- output for hall_sond
         trd_led : out std_logic_vector(3-1 downto 0)-- output for led
     );
 end tread_sensor;
@@ -323,7 +323,7 @@ begin
                 if (s_cnt < DELAY_4SEC) then
                     s_cnt <= s_cnt + 1;
                     
-                    if rising_edge(btn_o) then  -- waiting for input rising edge
+                    if (btn_o = '1') then  -- waiting for input rising edge
                         clicks <= clicks + 1;   -- click +1
                         trd_o <= '1';           -- set at output 1
                     else
@@ -355,7 +355,7 @@ begin
 end Behavioral;
 ```
 ### Simulation waveforms - simulating tread sensor module
-![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/slapani.png)
+![project](https://github.com/yuliakyselova/Digital-electronics-1/blob/main/Labs/project/Images/tread_sensor_tb.jpeg)
 
 
 ### 5. Speed. 
