@@ -12,12 +12,16 @@
 
 ### Project objectives
 
-Creating a console for exercise bike with hall sensor, measuring and displaying speed, distance traveled etc.
+Creating a simulation of console for exercise bike, using hall sensor on the wheel, which will do measuring and displaying speed, distance traveled.
 
 
 ## Hardware description
 
-Board used Arty A7-35T.
+- Arty A7-35T board
+- 4x 7-segment display
+- 1x button
+- 3x switch
+- 2x RGB LED
 
 
 ## VHDL modules description and simulations
@@ -432,4 +436,4 @@ end Behavioral;
 
 ## References
 
-   1. 
+   1. https://reference.digilentinc.com/reference/programmable-logic/arty-a7/reference-manual
