@@ -8,7 +8,7 @@
 - **Levák Adam**
 - **Lovas Václav**
 
-[Link to GitHub project folder]( http://github.com/xxx)
+[Link to GitHub project folder]( http://github.com/)
 
 ### Project objectives
 
