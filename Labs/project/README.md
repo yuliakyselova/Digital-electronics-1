@@ -197,24 +197,12 @@ entity hall_sonda is
 end hall_sonda;
 
 architecture Behavioral of hall_sonda is
-    signal s_trd : std_logic;           -- connecting signal
-    signal s_btn : std_logic;           -- for fixing error
+    
     signal s_cnt_local : natural;       -- local counter
 
 begin
-    tread_s : entity work.tread_sensor
-        port map(           
-            clk => clk,
-            rst => rst,
-            btn_o => s_btn,
-            trd_o => s_trd
-            
-        ); 
-     
-    p_hall_sonda : process(s_trd,clk)
+    p_hall_sonda : process(trdhs)
     begin
-        s_trd <= trdhs;                  -- Set output from tread_sensor to input software hall_sond
-              
         if rising_edge(trdhs) then       -- set 
             if (rst = '1') then          -- High active reset
                 s_cnt_local  <= 0;       -- Clear local counter
