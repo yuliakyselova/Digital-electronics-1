@@ -412,6 +412,9 @@ end Behavioral;
 
 ## TOP module description and simulations
 
+### Diagram of `top` module.
+
+
 VHDL code of top module - `top.vhd`.
 ```vhdl
 library IEEE;
