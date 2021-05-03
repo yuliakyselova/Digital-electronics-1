@@ -332,13 +332,13 @@ begin
                         
                     end if;    
                 else                            -- dysplaing the intensity of treading
-                    if (clicks <= 5) then
+                    if (clicks <= 3) then
                         s_state <= BAD;
                 
-                    elsif (clicks <= 10) then 
+                    elsif (clicks <= 6) then 
                         s_state <= NORMAL;
                 
-                    elsif (clicks <= 15) then
+                    elsif (clicks <= 10) then
                         s_state <= GOOD;
                     
                     else 
